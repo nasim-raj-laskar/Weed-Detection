@@ -1,7 +1,5 @@
 # Weed Detection
 
-Multi-architecture deep learning framework for automated weed species classification using computer vision techniques.
-
 ## Dataset
 
 **DeepWeeds Dataset**: 17,509 RGB images (256×256px) across 9 classes with significant class imbalance (Snake Weed: 42.9%, others: 5.8-10.9%).
