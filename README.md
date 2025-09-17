@@ -46,7 +46,7 @@
 | Training Accuracy   | 96.31% |
 | Validation Accuracy | 86.81% |
 | Test Accuracy       | 82.27% |
-| Test Loss           | 0.7263 |
+| Test Loss           | 72.63% |
 | FLOPs               | 585M   |
 
 #### Plots
