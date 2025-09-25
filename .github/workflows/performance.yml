@@ -1,0 +1,24 @@
+name: Performance
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  performance:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Check file sizes
+      run: |
+        find . -name "*.h5" -exec ls -lh {} + || true
+        find . -name "*.ipynb" -size +10M -exec echo "Large notebook: {}" \; || true
