@@ -15,4 +15,4 @@ jobs:
     
     - name: Check project structure
       run: |
-        test -d Models && test -d Scripts && test -d Plots && echo "✓ Project structure valid"
+        test -d Models && test -d Scripts && test -d Plots && echo " Project structure valid"
