@@ -84,11 +84,11 @@
 
 | Training/Validation Accuracy & Loss | Confusion Matrix |
 |---|---|
-| <img src="Plots/MobileNetV3/Acc.png" width="350"/> | <img src="Plots/MobileNetV3/CM.png" width="400"/> |
+| <img src="Plots/MobileNetV3/acc.png" width="350"/> | <img src="Plots/MobileNetV3/cm.png" width="400"/> |
 
 | ROC Curves | Precision-Recall Curves |
 |---|---|
-| <img src="Plots/MobileNetV3/ROC.png" width="400"/> | <img src="Plots/MobileNetV3/PRC.png" width="379"/> |
+| <img src="Plots/MobileNetV3/roc.png" width="400"/> | <img src="Plots/MobileNetV3/prc.png" width="379"/> |
 
 ---
 ### 3. EfficientNetB0 + Squeeze-and-Excite
