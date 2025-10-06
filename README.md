@@ -20,7 +20,7 @@
 | Model               | Backbone       | Attention          | Input Size | Parameters (Trainable) | Size  | Train Acc | Val Acc | Test Acc | Folder                                     |
 | ------------------- | -------------- | ------------------ | ---------- | ---------------------- | ----- | --------- | ------- | -------- | ------------------------------------------ |
 | MobileNetV2 + SE    | MobileNetV2    | Squeeze-and-Excite | 224×224×3  | 3.8M (1.2M)            | 42 MB | 96.31%    | 86.81%  | 82.27%   | [mobileNetV2](./Scripts/MobileNetV2/mobileNetV2.ipynb)       |
-|MobileNetV3 +SE | TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|[mobileNetV3](./Scripts/mobileNetV3/mobileNetV3.ipynb)
+|MobileNetV3 +SE | MobileNetV3Large | Squeeze-and-Excite | 224×224×3 | 4.7M (4.7M) | 56 MB | 94.36% | 91.55% | 92.03% |[mobileNetV3](./Scripts/mobileNetV3/Mv3.ipynb)
 | EfficientNetB0 + SE | EfficientNetB3 | TBD | TBD  | TBD                    | TBD   | TBD       | TBD     | TBD      | [efficientNetB3](./Scripts/EfficientNetB0/efficientNetB0.ipynb) |
 | GhostNet            | GhostNet       | None               | TBD  | TBD                    | TBD   | TBD       | TBD     | TBD      | [ghostNet](./Scripts/GhostNet/ghostNet.ipynb)             |
 
@@ -63,15 +63,22 @@
 
 ### 2. MobileNetV3 + Squeeze-and-Excite
 
-*(Pending Training)*
+* **Backbone**: MobileNetV3-Large (ImageNet pretrained, last 60 layers unfrozen)
+* **Attention**: Squeeze-and-Excite block
+* **Head**: Dense(1024) → BatchNorm → Dropout(0.4) → Dense(512) → BatchNorm → Dropout(0.3) → Dense(9, softmax)
+* **Optimizer**: Adam (lr=1e-4)
+* **Batch size**: 32 | **Epochs**: 20 (early stopped)
+* **Loss**: Categorical Crossentropy
 
-#### Performance (TBD)
+#### Performance
 
-| Metric              | Value |
-| ------------------- | ----- |
-| Training Accuracy   | TBD   |
-| Validation Accuracy | TBD   |
-| Test Accuracy       | TBD   |
+| Metric              | Value  |
+| ------------------- | ------ |
+| Training Accuracy   | 94.36% |
+| Validation Accuracy | 91.55% |
+| Test Accuracy       | 92.03% |
+| Test Loss           | 29.15% |
+| Parameters          | 4.7M   |
 
 #### Plots
 
@@ -81,7 +88,7 @@
 
 | ROC Curves | Precision-Recall Curves |
 |---|---|
-| <img src="Plots/MobileNetV3/ROC1.png" width="400"/> | <img src="Plots/MobileNetV3/PRC.png" width="350"/> |
+| <img src="Plots/MobileNetV3/ROC.png" width="400"/> | <img src="Plots/MobileNetV3/PRC.png" width="379"/> |
 
 ---
 ### 3. EfficientNetB0 + Squeeze-and-Excite
@@ -135,7 +142,7 @@
 ## Saved Models
 
 * MobileNetV2 + SE: `models/mobileNetV2/mobileNetV2.h5`
-* MobileNetV3 + SE: `models/mobileNet3/mobileNetV3.h5` *(TBD)*
+* MobileNetV3 + SE: `Models/MobileNetV3/mobilenetv3_large_model.keras` 
 * EfficientNetB0 + SE: `models/efficientNetB3/efficientNetB0.h5` *(TBD)*
 * GhostNet: `models/ghostNet/ghostNet.h5` *(TBD)*
 
